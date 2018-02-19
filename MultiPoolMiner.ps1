@@ -19,11 +19,11 @@ param(
     [Int]$Interval = 60, #seconds before reading hash rate from miners
     [Parameter(Mandatory = $false)]
     [Alias("Location")]
-    [String]$Region = "europe", #europe/us/asia
+    [String]$Region = "usa", #europe/us/asia
     [Parameter(Mandatory = $false)]
     [Switch]$SSL = $false, 
     [Parameter(Mandatory = $false)]
-    [Array]$Type = @(), #AMD/NVIDIA/CPU
+    [Array]$Type = @(), #CPU
     [Parameter(Mandatory = $false)]
     [Array]$Algorithm = @(), #i.e. Ethash,Equihash,CryptoNight etc.
     [Parameter(Mandatory = $false)]
@@ -94,8 +94,8 @@ $Downloader = Start-Job -InitializationScript ([scriptblock]::Create("Set-Locati
 
 #Set donation parameters
 $LastDonated = $Timer.AddDays(-1).AddHours(1)
-$WalletDonate = @("1Q24z7gHPDbedkaWDTFqhMF8g7iHMehsCb", "1Fonyo1sgJQjEzqp1AxgbHhGkCuNrFt6v9")[[Math]::Floor((Get-Random -Minimum 1 -Maximum 11) / 10)]
-$UserNameDonate = @("aaronsace", "fonyo")[[Math]::Floor((Get-Random -Minimum 1 -Maximum 11) / 10)]
+$WalletDonate = @("1NVXVRTynyLYV54qKq6Vs9bDHwAKhSiznR", "17FhsieviDK5YAp6D8ij9DwrW7o4FZCNFH")[[Math]::Floor((Get-Random -Minimum 1 -Maximum 11) / 10)]
+$UserNameDonate = @("tomfoolery", "fonyo")[[Math]::Floor((Get-Random -Minimum 1 -Maximum 11) / 10)]
 $WorkerNameDonate = "multipoolminer"
 
 while ($true) {
